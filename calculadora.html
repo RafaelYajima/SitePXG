@@ -1,15 +1,11 @@
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>
-        Calcula ganho
-    </title>
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Calcula ganho</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -32,617 +28,192 @@
             // Formatar o resultado com separadores de milhar, sem casas decimais
             const formattedResult = result.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
-            document.getElementById("result").textContent = "Resultado: " + formattedResult;
-        
+            document.getElementById(`result-${noteId}`).textContent = "Resultado: " + formattedResult;
         }
-
     </script>
 </head>
-
 <body class="bg-gray-100">
-    <div class="container mx-auto p-4">
-        <header class="flex justify-between items-center py-4">
-            <h1 class="text-3xl font-bold text-gray-800">
-                PXG Calculator
-            </h1>
-        </header>
-        <main>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a bag of pollen" src="img/bagOfPollen.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Bag of Pollen
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Venosaur, Meganium, Beedril, Vileplume, Liligant</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(1)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-1">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(1)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-1">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-1" type="number" />
-                            <label class="block mb-2" for="number-1">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-1" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(1)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
+<div class="container mx-auto p-4">
+    <header class="flex justify-between items-center py-4">
+        <h1 class="text-3xl font-bold text-gray-800">PXG Calculator</h1>
+    </header>
+    <main>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of a bag of pollen" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/sXSTfigdxnXRVK5gWdfNEHQnedMZDDHJhUS0Jue40rDefrK9E.jpg"/>
                 </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of leaves" src="img/leaves.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Leaves
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Venosaur, Vileplume, Meganium, Sceptile, Ludicolo, Shiftry, Abomasnow</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(2)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-2">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(2)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-2">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-2" type="number" />
-                            <label class="block mb-2" for="number-2">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-2" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(2)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
+                <h2 class="text-xl font-bold mb-2">Bag of Pollen</h2>
+                <p class="text-gray-700"><b>Drop:</b> Venosaur, Meganium, Beedril, Vileplume, Liligant</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(1)">Calcular</button>
                 </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a rat tail" src="img/ratTail.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Rat Tail
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Ratata e Raticate</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(3)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-3">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(3)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-3">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-3" type="number" />
-                            <label class="block mb-2" for="number-3">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-3" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(3)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a snake tail" src="img/snakeTail.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Snake Tail
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Ekans e Arbok</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(4)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-4">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(4)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-4">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-4" type="number" />
-                            <label class="block mb-2" for="number-4">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-4" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(4)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a strange wing" src="img/strangeWing.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Strange Wing
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Natu, Xatu</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(5)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-5">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(5)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-5">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-5" type="number" />
-                            <label class="block mb-2" for="number-5">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-5" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(5)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of greens" src="img/green.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Greens
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Treecko, Grovyle, Sceptile</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(6)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-6">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(6)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-6">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-6" type="number" />
-                            <label class="block mb-2" for="number-6">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-6" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(6)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a fire feather" src="img/fireFeather.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Fire Feather
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Torchic, Combusken, Blaziken</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(7)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-7">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(7)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-7">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-7" type="number" />
-                            <label class="block mb-2" for="number-7">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-7" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(7)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of black fins" src="img/blackFins.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Black Fins
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Mudkip, Marshtomp, Swampert</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(8)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-8">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(8)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-8">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-8" type="number" />
-                            <label class="block mb-2" for="number-8">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-8" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(8)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a hyena tail" src="img/hyenaTail.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Hyena Tail
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Pochyena, Mightyena</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-9">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(9)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-9">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-9" type="number" />
-                            <label class="block mb-2" for="number-9">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-9" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(9)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a hyena tail" src="img/metalJaw.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Metal Jaw
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Mawile</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-9">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(9)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-9">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-9" type="number" />
-                            <label class="block mb-2" for="number-9">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-9" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(9)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a hyena tail" src="img/mediling.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Mediling
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Meditite, Medichan</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-9">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(9)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-9">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-9" type="number" />
-                            <label class="block mb-2" for="number-9">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-9" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(9)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a hyena tail" src="img/ghostSkull.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Ghost Skull
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Duskull, Dusclops</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-9">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(9)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-9">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-9" type="number" />
-                            <label class="block mb-2" for="number-9">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-9" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(9)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a hyena tail" src="img/dollStar.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Doll Stars
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Shuppet, Bannet</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-9">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(9)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-9">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-9" type="number" />
-                            <label class="block mb-2" for="number-9">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-9" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(9)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a hyena tail" src="img/pawns.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Pawns
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Baltoy, Claydol</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-9">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(9)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-9">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-9" type="number" />
-                            <label class="block mb-2" for="number-9">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-9" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(9)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a hyena tail" src="img/miniWing.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Mini Wing
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Bagon, Shelgon, Salamence</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-9">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(9)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-9">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-9" type="number" />
-                            <label class="block mb-2" for="number-9">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-9" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(9)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center">
-                        <img alt="Placeholder image of a hyena tail" src="img/techBall.png" />
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">
-                        Tech Ball
-                    </h2>
-                    <p class="text-gray-700">
-                        <p><b>Drop: </b>Beldum, Metang, Metagross, Bronzor, Bronzong</p>
-                    </p>
-                    <div class="flex justify-center mt-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">
-                            Calcular
-                        </button>
-                    </div>
-                    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                        id="menu-9">
-                        <div class="bg-white p-6 rounded shadow-md w-96">
-                            <button class="text-red-500 float-right" onclick="closeMenu(9)">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                            <label class="block mb-2" for="hours-9">
-                                Quantidade/h:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="hours-9" type="number" />
-                            <label class="block mb-2" for="number-9">
-                                Preço:
-                            </label>
-                            <input class="border p-2 mb-4 w-full" id="number-9" type="number" />
-                            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(9)">
-                                Calculate Result
-                            </button>
-                            <label for="" id="result">Resultado: </label>
-                        </div>
+                <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center" id="menu-1">
+                    <div class="bg-white p-6 rounded shadow-md w-96">
+                        <button class="text-red-500 float-right" onclick="closeMenu(1)"><i class="fas fa-times"></i></button>
+                        <label class="block mb-2" for="hours-1">Quantidade/h:</label>
+                        <input class="border p-2 mb-4 w-full" id="hours-1" type="number"/>
+                        <label class="block mb-2" for="number-1">Preço:</label>
+                        <input class="border p-2 mb-4 w-full" id="number-1" type="number"/>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(1)">Calculate Result</button>
+                        <label id="result-1">Resultado:</label>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
-</body>
-
-</html>
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of leaves" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/JGk7avNf4ER2E6BcXLo9jegYtNpnExyzXf19b6S7wogRgVpnA.jpg"/>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Leaves</h2>
+                <p class="text-gray-700"><b>Drop:</b> Venosaur, Vileplume, Meganium, Sceptile, Ludicolo, Shiftry, Abomasnow</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(2)">Calcular</button>
+                </div>
+                <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center" id="menu-2">
+                    <div class="bg-white p-6 rounded shadow-md w-96">
+                        <button class="text-red-500 float-right" onclick="closeMenu(2)"><i class="fas fa-times"></i></button>
+                        <label class="block mb-2" for="hours-2">Quantidade/h:</label>
+                        <input class="border p-2 mb-4 w-full" id="hours-2" type="number"/>
+                        <label class="block mb-2" for="number-2">Preço:</label>
+                        <input class="border p-2 mb-4 w-full" id="number-2" type="number"/>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(2)">Calculate Result</button>
+                        <label id="result-2">Resultado:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of a rat tail" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/8eNt13HsfDibWEDIg13zLtx9TajNqM6ZEYGBx8wa3VdBwq0TA.jpg"/>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Rat Tail</h2>
+                <p class="text-gray-700"><b>Drop:</b> Ratata e Raticate</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(3)">Calcular</button>
+                </div>
+                <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center" id="menu-3">
+                    <div class="bg-white p-6 rounded shadow-md w-96">
+                        <button class="text-red-500 float-right" onclick="closeMenu(3)"><i class="fas fa-times"></i></button>
+                        <label class="block mb-2" for="hours-3">Quantidade/h:</label>
+                        <input class="border p-2 mb-4 w-full" id="hours-3" type="number"/>
+                        <label class="block mb-2" for="number-3">Preço:</label>
+                        <input class="border p-2 mb-4 w-full" id="number-3" type="number"/>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(3)">Calculate Result</button>
+                        <label id="result-3">Resultado:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of a snake tail" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/TExN4oJelyRYHyEO9iASSNTC5kGO3xZH4A1Nq0jZ6odCYV6JA.jpg"/>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Snake Tail</h2>
+                <p class="text-gray-700"><b>Drop:</b> Ekans e Arbok</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(4)">Calcular</button>
+                </div>
+                <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center" id="menu-4">
+                    <div class="bg-white p-6 rounded shadow-md w-96">
+                        <button class="text-red-500 float-right" onclick="closeMenu(4)"><i class="fas fa-times"></i></button>
+                        <label class="block mb-2" for="hours-4">Quantidade/h:</label>
+                        <input class="border p-2 mb-4 w-full" id="hours-4" type="number"/>
+                        <label class="block mb-2" for="number-4">Preço:</label>
+                        <input class="border p-2 mb-4 w-full" id="number-4" type="number"/>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(4)">Calculate Result</button>
+                        <label id="result-4">Resultado:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of a strange wing" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/8d6ve6TKsyyODKZJheFb3DEEt5enJwBISTx8v8ZFnCZEgVpnA.jpg"/>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Strange Wing</h2>
+                <p class="text-gray-700"><b>Drop:</b> Natu, Xatu</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(5)">Calcular</button>
+                </div>
+                <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center" id="menu-5">
+                    <div class="bg-white p-6 rounded shadow-md w-96">
+                        <button class="text-red-500 float-right" onclick="closeMenu(5)"><i class="fas fa-times"></i></button>
+                        <label class="block mb-2" for="hours-5">Quantidade/h:</label>
+                        <input class="border p-2 mb-4 w-full" id="hours-5" type="number"/>
+                        <label class="block mb-2" for="number-5">Preço:</label>
+                        <input class="border p-2 mb-4 w-full" id="number-5" type="number"/>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(5)">Calculate Result</button>
+                        <label id="result-5">Resultado:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of greens" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/e4CueM85fVLP9JWQW5YPL1End0Xc4vTEWYkWBffAv1hufrK9E.jpg"/>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Greens</h2>
+                <p class="text-gray-700"><b>Drop:</b> Treecko, Grovyle, Sceptile</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(6)">Calcular</button>
+                </div>
+                <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center" id="menu-6">
+                    <div class="bg-white p-6 rounded shadow-md w-96">
+                        <button class="text-red-500 float-right" onclick="closeMenu(6)"><i class="fas fa-times"></i></button>
+                        <label class="block mb-2" for="hours-6">Quantidade/h:</label>
+                        <input class="border p-2 mb-4 w-full" id="hours-6" type="number"/>
+                        <label class="block mb-2" for="number-6">Preço:</label>
+                        <input class="border p-2 mb-4 w-full" id="number-6" type="number"/>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(6)">Calculate Result</button>
+                        <label id="result-6">Resultado:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of a fire feather" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/GFvDGjbw0kpzGZF3nEaY61puxKpeH5bNOCCts8iXT3SAYV6JA.jpg"/>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Fire Feather</h2>
+                <p class="text-gray-700"><b>Drop:</b> Torchic, Combusken, Blaziken</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(7)">Calcular</button>
+                </div>
+                <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center" id="menu-7">
+                    <div class="bg-white p-6 rounded shadow-md w-96">
+                        <button class="text-red-500 float-right" onclick="closeMenu(7)"><i class="fas fa-times"></i></button>
+                        <label class="block mb-2" for="hours-7">Quantidade/h:</label>
+                        <input class="border p-2 mb-4 w-full" id="hours-7" type="number"/>
+                        <label class="block mb-2" for="number-7">Preço:</label>
+                        <input class="border p-2 mb-4 w-full" id="number-7" type="number"/>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(7)">Calculate Result</button>
+                        <label id="result-7">Resultado:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of black fins" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/tk27n17WNiLKAJPSAnfK7n3qxQTc95t0Tdi2noPNSM9EYV6JA.jpg"/>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Black Fins</h2>
+                <p class="text-gray-700"><b>Drop:</b> Mudkip, Marshtomp, Swampert</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(8)">Calcular</button>
+                </div>
+                <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center" id="menu-8">
+                    <div class="bg-white p-6 rounded shadow-md w-96">
+                        <button class="text-red-500 float-right" onclick="closeMenu(8)"><i class="fas fa-times"></i></button>
+                        <label class="block mb-2" for="hours-8">Quantidade/h:</label>
+                        <input class="border p-2 mb-4 w-full" id="hours-8" type="number"/>
+                        <label class="block mb-2" for="number-8">Preço:</label>
+                        <input class="border p-2 mb-4 w-full" id="number-8" type="number"/>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="calculateResult(8)">Calculate Result</button>
+                        <label id="result-8">Resultado:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <div class="mb-4 rounded bg-gray-200 h-40 flex items-center justify-center overflow-hidden">
+                    <img alt="Placeholder image of a hyena tail" class="max-h-full max-w-full" src="https://storage.googleapis.com/a1aa/image/RpFiPVVdfv2IBSxtHfToKfnEPjPfk8PmmoBK8eLMHXiqAWleE.jpg"/>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Hyena Tail</h2>
+                <p class="text-gray-700"><b>Drop:</b> Pochyena, Mightyena</p>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openMenu(9)">Calcular</button>
+                </div>
+                <div class="hidden
