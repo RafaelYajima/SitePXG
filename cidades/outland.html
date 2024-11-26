@@ -6,7 +6,6 @@
     <title>Outland</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    </link>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -37,26 +36,21 @@
     <div class="w-full max-w-2xl">
         <h1 class="text-3xl text-teal-400 font-bold mb-6 text-center">Outland</h1>
         <div class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-around">
-            <div id="east" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600"
-                onclick="navigate('east')">
+            <div id="east" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600" onclick="navigate('east')">
                 <span class="font-bold">East</span>
             </div>
-            <div id="north" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600"
-                onclick="navigate('north')">
+            <div id="north" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600" onclick="navigate('north')">
                 <span class="font-bold">North</span>
             </div>
-            <div id="south" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600"
-                onclick="navigate('south')">
+            <div id="south" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600" onclick="navigate('south')">
                 <span class="font-bold">South</span>
             </div>
         </div>
         <div id="content" class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <p class="text-gray-400 text-center">Select a direction to explore Outland.</p>
         </div>
-        <div class="flex justify-center">
-            <button
-                class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onclick="goBack()">
+        <div class="flex justify-center mt-4">
+            <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="goBack()">
                 Back to Cidades
             </button>
         </div>
@@ -83,6 +77,7 @@
                             <span class="font-bold">Saida Sul</span>
                         </div>
                     </div>
+                    <div id="image-container" class="flex justify-center mt-4"></div>
                 `;
                 document.getElementById('east').classList.add('active');
             } else if (direction === 'north') {
@@ -101,6 +96,7 @@
                             <span class="font-bold">Saida Sul</span>
                         </div>
                     </div>
+                    <div id="image-container" class="flex justify-center mt-4"></div>
                 `;
                 document.getElementById('north').classList.add('active');
             } else if (direction === 'south') {
@@ -119,6 +115,7 @@
                             <span class="font-bold">Saida Sul</span>
                         </div>
                     </div>
+                    <div id="image-container" class="flex justify-center mt-4"></div>
                 `;
                 document.getElementById('south').classList.add('active');
             }
@@ -129,10 +126,47 @@
             subNavItems.forEach(item => item.classList.remove('active'));
 
             document.getElementById(subDirection).classList.add('active');
+
+            const imageContainer = document.getElementById('image-container');
+            let imageUrl = '';
+
+            if (mainDirection === 'east') {
+                if (subDirection === 'saida-leste') {
+                    imageUrl = 'img/EastSaidaLeste.png';
+                } else if (subDirection === 'saida-oeste') {
+                    imageUrl = 'img/EastSaidaOeste.png';
+                } else if (subDirection === 'saida-norte') {
+                    imageUrl = 'img/EastSaidaNorte.png';
+                } else if (subDirection === 'saida-sul') {
+                    imageUrl = 'img/EastSaidaSul.png';
+                }
+            } else if (mainDirection === 'north') {
+                if (subDirection === 'saida-leste') {
+                    imageUrl = 'img/NorthSaidaLeste.png';
+                } else if (subDirection === 'saida-oeste') {
+                    imageUrl = 'img/NorthSaidaOeste.png';
+                } else if (subDirection === 'saida-norte') {
+                    imageUrl = 'img/NorthSaidaNorte.png';
+                } else if (subDirection === 'saida-sul') {
+                    imageUrl = 'img/NorthSaidaSul.png';
+                }
+            } else if (mainDirection === 'south') {
+                if (subDirection === 'saida-leste') {
+                    imageUrl = 'img/SouthSaidaLeste.png';
+                } else if (subDirection === 'saida-oeste') {
+                    imageUrl = 'img/SouthSaidaOeste.png';
+                } else if (subDirection === 'saida-norte') {
+                    imageUrl = 'img/SouthSaidaNorte.png';
+                } else if (subDirection === 'saida-sul') {
+                    imageUrl = 'img/SouthSaidaSul.png';
+                }
+            }
+
+            imageContainer.innerHTML = `<img src="${imageUrl}" alt="Image for ${mainDirection} ${subDirection}" class="rounded shadow-md">`;
         }
 
         function goBack() {
-            window.location.href = '../cidade.html';
+            window.location.href = '../menuPrincipal.html';
         }
     </script>
 </body>
