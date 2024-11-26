@@ -6,8 +6,7 @@
     <title>
         Loots
     </title>
-    <script src="https://cdn.tailwindcss.com">
-    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;display=swap" rel="stylesheet" />
     <style>
@@ -17,225 +16,235 @@
     </style>
 </head>
 
-<body class="bg-gray-900 text-white h-screen flex flex-col items-center justify-center">
-    <div class="w-full max-w-2xl">
-        <h1 class="text-3xl text-teal-400 font-bold mb-6 text-center">
+<body class="bg-gray-900 text-white h-screen flex flex-col items-center overflow-y-auto">
+    <div class="w-full max-w-6xl px-4 py-8">
+        <h1 class="text-4xl text-teal-400 font-bold mb-8 text-center">
             Loots
         </h1>
-        <ul class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic weapon" class="w-12 h-12 rounded-full mr-4" height="50"
+        <ul id="loot-list"
+            class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Bag of Pollen')">
+                <img alt="Image of a bag of pollen" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/bagOfPollen.png"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Weapon
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech weapon with advanced features.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Bag of Pollen
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Leaves')">
+                <img alt="Image of leaves" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/leaves.png"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Leaves
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Rat Tail')">
+                <img alt="Image of a rat tail" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/ratTail.png"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Rat Tail
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Snake Tail')">
+                <img alt="Image of a snake tail" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/snakeTail.png"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Snake Tail
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Bug Venom')">
+                <img alt="Image of bug venom" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/bugVenom.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Bug Venom
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Scythe')">
+                <img alt="Image of a scythe" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/scythe.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Scythe
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Bull Tail')">
+                <img alt="Image of a bull tail" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/bullTail.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Bull Tail
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Strange Wing')">
+                <img alt="Image of a strange wing" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/strangeWing.png"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Strange Wing
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Dog Ear')">
+                <img alt="Image of a dog ear" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/dogEar.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Dog Ear
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Insect Claws')">
+                <img alt="Image of insect claws" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/insectClaw.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Insect Claws
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Green')">
+                <img alt="Image of a green item" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/green.png"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Green
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Fire Feather')">
+                <img alt="Image of a fire feather" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/fireFeather.png"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Fire Feather
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Black Fins')">
+                <img alt="Image of black fins" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/blackFins.png"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Black Fins
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Hyena Tail')">
+                <img alt="Image of a hyena tail" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/hyenaTail.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Hyena Tail
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Metal Jaw')">
+                <img alt="Image of a metal jaw" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/metalJaw.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Metal Jaw
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Mediling')">
+                <img alt="Image of a mediling" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/mediling.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Mediling
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Paws')">
+                <img alt="Image of paws" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/pawns.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Paws
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Doll Star')">
+                <img alt="Image of a doll star" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/dollStar.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Doll Star
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Ghost Skull')">
+                <img alt="Image of a ghost skull" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/ghostSkull.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Ghost Skull
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Mini Wing')">
+                <img alt="Image of a mini wing" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/miniWing.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Mini Wing
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer" onclick="openMenu('Tech Ball')">
+                <img alt="Image of a tech ball" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
+                    src="img/techBall.png"
+                    width="64" />
+                <div>
+                    <p class="text-teal-400 font-bold text-lg">
+                        Tech Ball
+                    </p>
+                </div>
+            </li>
+            <li class="flex items-center bg-gray-700 p-4 rounded-lg cursor-pointer"
+                onclick="openMenu('Em desenvolvimento...')">
+                <img alt="Image indicating development" class="w-16 h-16 rounded-full mr-4 object-cover" height="64"
                     src="img/"
-                    width="50" />
+                    width="64" />
                 <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
+                    <p class="text-teal-400 font-bold text-lg">
+                        Em desenvolvimento...
                     </p>
                 </div>
             </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
-                    src="img/"
-                    width="50" />
-                <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
-                    </p>
-                </div>
-            </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
-                    src="img/"
-                    width="50" />
-                <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
-                    </p>
-                </div>
-            </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
-                    src="img/"
-                    width="50" />
-                <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
-                    </p>
-                </div>
-            </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
-                    src="img/"
-                    width="50" />
-                <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
-                    </p>
-                </div>
-            </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
-                    src="img/"
-                    width="50" />
-                <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
-                    </p>
-                </div>
-            </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
-                    src="img/"
-                    width="50" />
-                <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
-                    </p>
-                </div>
-            </li>
-            <li class="mb-4 flex items-center">
-                <img alt="Image of a futuristic armor" class="w-12 h-12 rounded-full mr-4" height="50"
-                    src="img/"
-                    width="50" />
-                <div>
-                    <p class="text-teal-400 font-bold">
-                        Futuristic Armor
-                    </p>
-                    <p class="text-gray-400">
-                        A high-tech armor with advanced protection.
-                    </p>
-                </div>
-            </li>
-            
         </ul>
-
-
-
         <div class="flex justify-center">
             <button
                 class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -245,13 +254,136 @@
         </div>
     </div>
 
-
+    <div id="menu" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden transition-opacity duration-300 ease-in-out">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-96 transition-transform duration-300 ease-in-out transform scale-95 opacity-0" id="modal-content">
+            <h2 id="menu-title" class="text-2xl text-teal-400 font-bold mb-4"></h2>
+            
+            <!-- Formulário de entrada -->
+            <div class="mb-4">
+                <label class="block text-teal-400 text-sm font-bold mb-2" for="field1">
+                    Field 1
+                </label>
+                <input
+                    class="field-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="field1" type="number" placeholder="Enter number">
+            </div>
+            <div class="mb-4">
+                <label class="block text-teal-400 text-sm font-bold mb-2" for="field2">
+                    Field 2
+                </label>
+                <input
+                    class="field-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="field2" type="number" placeholder="Enter number">
+            </div>
+            <div class="mb-4">
+                <label class="block text-teal-400 text-sm font-bold mb-2" for="field3">
+                    Field 3
+                </label>
+                <input
+                    class="field-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="field3" type="number" placeholder="Enter number">
+            </div>
+            
+            <!-- Resultado da soma -->
+            <div class="mb-4">
+                <label class="block text-teal-400 text-sm font-bold mb-2" for="result">
+                    Result
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="result" type="text" placeholder="Result will appear here" disabled>
+            </div>
+    
+            <!-- Botões -->
+            <div class="flex items-center justify-between">
+                <button
+                    class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    onclick="submitForm()">
+                    Submit
+                </button>
+                <button
+                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    onclick="closeMenu()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <script>
-        function goBack() {
-            window.location.href = 'index.html';
+        // Função para abrir o menu/modal com um título
+        function openMenu(title) {
+            // Exibir o modal com animação de transição
+            const menu = document.getElementById('menu');
+            const modalContent = document.getElementById('modal-content');
+            
+            document.getElementById('menu-title').innerText = title;
+            menu.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+            }, 10); // pequeno atraso para garantir que a classe 'scale-95' seja removida de forma suave
         }
-    </script>
-
+    
+        // Função para fechar o menu/modal com animação
+        function closeMenu() {
+            const menu = document.getElementById('menu');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                menu.classList.add('hidden');
+            }, 300); // Aguardar animação de fechamento antes de esconder o modal
+        }
+    
+        // Função para lidar com o envio do formulário
+        function submitForm() {
+            // Obter os valores dos campos
+            const field1 = document.getElementById('field1');
+            const field2 = document.getElementById('field2');
+            const field3 = document.getElementById('field3');
+            const result = document.getElementById('result');
+    
+            // Validação visual
+            resetFieldStyles();  // Resetar estilos antes de aplicar novas validações
+            
+            let valid = true;
+            if (!field1.value) {
+                field1.classList.add('border-red-500');
+                valid = false;
+            }
+            if (!field2.value) {
+                field2.classList.add('border-red-500');
+                valid = false;
+            }
+            if (!field3.value) {
+                field3.classList.add('border-red-500');
+                valid = false;
+            }
+    
+            if (valid) {
+                // Calcular a soma dos valores
+                const sum = parseFloat(field1.value) + parseFloat(field2.value) + parseFloat(field3.value);
+                
+                // Exibir o resultado no campo 'result'
+                result.value = sum;
+            } else {
+                // Caso algum campo não esteja preenchido
+                alert('Please fill in all the fields.');
+            }
+        }
+    
+        // Função para resetar os estilos dos campos
+        function resetFieldStyles() {
+            const fields = document.querySelectorAll('.field-input');
+            fields.forEach(field => {
+                field.classList.remove('border-red-500');
+            });
+        }
+        function goBack() {
+            window.location.href = 'menuPrincipal.html';
+        }
+    </script>    
+    
 </body>
 
 </html>
