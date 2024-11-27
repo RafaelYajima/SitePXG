@@ -29,38 +29,36 @@
             background-color: #2c7a7b;
             color: #1a202c;
         }
+
+        .image-container img {
+            width: 100%;
+            object-fit: contain;
+        }
     </style>
 </head>
 
-<body class="bg-gray-900 text-white h-screen flex flex-col items-center justify-center">
-    <div class="w-full max-w-2xl">
+<body class="bg-gray-900 text-white h-screen flex flex-col items-center justify-start pt-10">
+    <div class="w-full max-w-4xl">
         <h1 class="text-3xl text-teal-400 font-bold mb-6 text-center">Outland</h1>
-        <div class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-around">
-            <div id="east" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600"
-                onclick="navigate('east')">
+        <div class="bg-gray-800 shadow-md rounded px-4 pt-6 pb-8 mb-4 flex justify-around max-w-md mx-auto">
+            <div id="east" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600" onclick="navigate('east')">
                 <span class="font-bold">East</span>
             </div>
-            <div id="north" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600"
-                onclick="navigate('north')">
+            <div id="north" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600" onclick="navigate('north')">
                 <span class="font-bold">North</span>
             </div>
-            <div id="south" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600"
-                onclick="navigate('south')">
+            <div id="south" class="nav-item text-center p-4 bg-gray-700 rounded hover:bg-gray-600" onclick="navigate('south')">
                 <span class="font-bold">South</span>
             </div>
         </div>
         <div id="content" class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <p class="text-gray-400 text-center">Select a direction to explore Outland.</p>
         </div>
-        <div class="flex justify-center mt-4 gap-4">
-            <button
-                class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onclick="goBack()">
+        <div class="flex justify-center mt-4 gap-4 mb-10">
+            <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="goBack()">
                 Back to Cidades
             </button>
-            <button
-                class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onclick="goBack2()">
+            <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="goBack2()">
                 Back to Menu
             </button>
         </div>
@@ -87,7 +85,7 @@
                             <span class="font-bold">Saida Sul</span>
                         </div>
                     </div>
-                    <div id="image-container" class="flex justify-center mt-4"></div>
+                    <div id="image-container" class="flex flex-col items-center mt-4 gap-4 image-container"></div>
                 `;
                 document.getElementById('east').classList.add('active');
             } else if (direction === 'north') {
@@ -106,7 +104,7 @@
                             <span class="font-bold">Saida Sul</span>
                         </div>
                     </div>
-                    <div id="image-container" class="flex justify-center mt-4"></div>
+                    <div id="image-container" class="flex flex-col items-center mt-4 gap-4 image-container"></div>
                 `;
                 document.getElementById('north').classList.add('active');
             } else if (direction === 'south') {
@@ -125,7 +123,7 @@
                             <span class="font-bold">Saida Sul</span>
                         </div>
                     </div>
-                    <div id="image-container" class="flex justify-center mt-4"></div>
+                    <div id="image-container" class="flex flex-col items-center mt-4 gap-4 image-container"></div>
                 `;
                 document.getElementById('south').classList.add('active');
             }
@@ -138,46 +136,220 @@
             document.getElementById(subDirection).classList.add('active');
 
             const imageContainer = document.getElementById('image-container');
-            let imageUrl = '';
+            let images = [];
+            let descriptions1 = [];
+            let descriptions2 = [];
 
             if (mainDirection === 'east') {
                 if (subDirection === 'saida-leste') {
-                    imageUrl = 'img/EastSaidaLeste.png';
+                    images = [
+                        'img/East/Leste1.png',
+                        'img/East/Leste2.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): Hitmonclan, Hitmonlee',
+                        'Pokemon(s): Hitmontop'
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-oeste') {
-                    imageUrl = 'img/EastSaidaOeste.png';
+                    images = [
+                        'img/East/Oeste1.png',
+                        'img/East/Oeste2.png',
+                        'img/East/Oeste3.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): Arcanine',
+                        'Pokemon(s): Charizard, Magmar, Typhosion',
+                        'Pokemon(s): Magmar'
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-norte') {
-                    imageUrl = 'img/EastSaidaNorte.png';
+                    images = [
+                        'img/East/Norte1.png',
+                        'img/East/Norte2.png',
+                        'img/East/Norte3.png',
+                        'img/East/Norte4.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-sul') {
-                    imageUrl = 'img/EastSaidaSul.png';
+                    images = [
+                        'img/East/Sul1.png',
+                        'img/East/Sul2.png',
+                        'img/East/Sul3.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 }
             } else if (mainDirection === 'north') {
                 if (subDirection === 'saida-leste') {
-                    imageUrl = 'img/NorthSaidaLeste.png';
+                    images = [
+                        'img/North/Leste1.png',
+                        'img/North/Leste2.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-oeste') {
-                    imageUrl = 'img/NorthSaidaOeste.png';
+                    images = [
+                        'img/North/Oeste1.png',
+                        'img/North/Oeste2.png',
+                        'img/North/Oeste3.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-norte') {
-                    imageUrl = 'img/NorthSaidaNorte.png';
+                    images = [
+                        'img/North/Norte1.png',
+                        'img/North/Norte2.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-sul') {
-                    imageUrl = 'img/NorthSaidaSul.png';
+                    images = [
+                        'img/North/Sul1.png',
+                        'img/North/Sul2.png',
+                        'img/North/Sul3.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 }
             } else if (mainDirection === 'south') {
                 if (subDirection === 'saida-leste') {
-                    imageUrl = 'img/SouthSaidaLeste.png';
+                    images = [
+                        'img/South/Leste1.png',
+                        'img/South/Leste2.png',
+                        'img/South/Leste3.png',
+                        'img/South/Leste4.png',
+                        'img/South/Leste5.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-oeste') {
-                    imageUrl = 'img/SouthSaidaOeste.png';
+                    images = [
+                        'img/South/Oeste1.png',
+                        'img/South/Oeste2.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-norte') {
-                    imageUrl = 'img/SouthSaidaNorte.png';
+                    images = [
+                        'img/South/Norte1.png',
+                        'img/South/Norte2.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 } else if (subDirection === 'saida-sul') {
-                    imageUrl = 'img/SouthSaidaSul.png';
+                    images = [
+                        'img/South/Sul1.png',
+                        'img/South/Sul2.png',
+                        'img/South/Sul3.png',
+                        'img/South/Sul4.png'
+                    ];
+                    descriptions1 = [
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): ',
+                        'Pokemon(s): '
+                    ];
+                    descriptions2 = [
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: ',
+                        'Drops: '
+                    ];
                 }
             }
 
-            imageContainer.innerHTML = `<img src="${imageUrl}" alt="Image for ${mainDirection} ${subDirection}" class="rounded shadow-md">`;
+            imageContainer.innerHTML = images.map((image, index) => `
+                <div class="flex flex-col items-center w-full">
+                    <img src="${image}" alt="${descriptions1[index]}" class="rounded shadow-md">
+                    <p class="mt-2">${descriptions1[index]}</p>
+                    <p class="mt-2">${descriptions2[index]}</p>
+                </div>
+            `).join('');
         }
 
         function goBack() {
             window.location.href = '../cidade.html';
         }
+
         function goBack2() {
             window.location.href = '../menuPrincipal.html';
         }
