@@ -1,10 +1,12 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poke X Games</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </link>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,24 +14,75 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-900 text-white h-screen flex items-center justify-center">
     <div class="w-full max-w-xs">
-        <form class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form id="loginForm" class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div class="mb-4">
                 <label class="block text-teal-400 text-sm font-bold mb-2" for="username">
-                    Username
+                    Trainer Name
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="username" type="text" placeholder="Trainer Name">
             </div>
             <div class="mb-6">
                 <label class="block text-teal-400 text-sm font-bold mb-2" for="password">
                     Password
                 </label>
-                <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
+                <input
+                    class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                    id="password" type="password" placeholder="******************">
             </div>
-            <div class="flex items-center justify-between">
-                <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onclick="login()">
+            <div class="flex items-center justify-between space-x-2">
+                <button
+                    class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline"
+                    type="button" onclick="login()">
                     Sign In
+                </button>
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline"
+                    type="button" onclick="showRegisterForm()">
+                    Register
+                </button>
+            </div>
+        </form>
+
+        <form id="registerForm" class="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 hidden">
+            <div class="mb-4">
+                <label class="block text-teal-400 text-sm font-bold mb-2" for="regUsername">
+                    Trainer Name
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="regUsername" type="text" placeholder="Trainer Name">
+            </div>
+            <div class="mb-4">
+                <label class="block text-teal-400 text-sm font-bold mb-2" for="regEmail">
+                    Email
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="regEmail" type="email" placeholder="Email">
+            </div>
+            <div class="mb-6">
+                <label class="block text-teal-400 text-sm font-bold mb-2" for="regPassword">
+                    Password
+                </label>
+                <input
+                    class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                    id="regPassword" type="password" placeholder="******************">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline"
+                    type="button" onclick="register()">
+                    Register
+                </button>
+                <button
+                    class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-1 px-2 w-full rounded focus:outline-none focus:shadow-outline"
+                    type="button" onclick="showLoginForm()">
+                    Back to Sign In
                 </button>
             </div>
         </form>
@@ -40,12 +93,78 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (username === 'adm' && password === '123') {
+            if (username === 'ash' && password === 'pikachu') {
                 window.location.href = 'menuPrincipal.html';
             } else {
                 alert('Invalid login credentials');
             }
         }
+
+        function register() {
+            const username = document.getElementById('regUsername').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+
+            // Verificando se os dados estão sendo corretamente capturados
+            console.log("Username:", username);
+            console.log("Email:", email);
+            console.log("Password:", password);
+
+            if (username.trim() !== "" && email.trim() !== "" && password.trim() !== "") {
+                console.log("Passou");
+
+                const data = {
+                    "fields": {
+                        'Nome': username,  // Mapeando o campo do formulário para o campo da tabela no Baserow
+                        'Email': email,    // Mapeando o campo do formulário para o campo da tabela no Baserow
+                        'Senha': password  // Mapeando o campo do formulário para o campo da tabela no Baserow
+                    }
+                };
+
+                console.log(data);
+
+                const url = "https://api.baserow.io/api/database/rows/table/399956/";
+                const apiKey = "FpatNtdDDZ9L3bvNA5y7t0mfZZxnayn4";
+
+                fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Token ${apiKey}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Response from Baserow:", data);
+                        if (data.id) {
+                            alert(`Trainer registered successfully with ID: ${data.id}`);
+                            showLoginForm();
+                        } else {
+                            alert("Error registering trainer");
+                            console.error("Error data:", data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        alert("Error connecting to the server");
+                    });
+            } else {
+                console.log("Missing fields: ", { username, email, password });
+                alert("Please fill in all fields");
+            }
+        }
+
+        function showRegisterForm() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registerForm').classList.remove('hidden');
+        }
+
+        function showLoginForm() {
+            document.getElementById('registerForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
     </script>
 </body>
+
 </html>
